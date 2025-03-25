@@ -1,0 +1,11 @@
+conky.config = {
+    alignment = 'top_right',
+    background = true,
+    double_buffer = true,
+    minimum_width = 200, minimum_height = 50,
+    update_interval = 1,
+};
+
+conky.text = [[
+${color white}Weather Temperature: ${color green}${execi 600 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Kaduna,NG&appid=45ed290c816ce4b05dc3374001a9de10&units=metric" | jq -r '.main.temp'} °C
+]];
